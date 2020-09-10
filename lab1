@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{  
+  int  sun_h, sun_f,  rain_h, rain_f, scale;
+  double p_r, p_s;
+  
+  cout << "Enter the probability of sunny weather (from 0 to 1): " ;
+  cin >> p_s;
+  cout << "Enter the probability of rainy weather (from 0 to 1): " ;
+  cin >> p_r;
+  cout << "Enter the scale value : " ;
+  cin >> scale;
+  cout << "Enter the efficiency at home in good weather : " ;
+  cin >> sun_h;
+  cout << "Enter efficiency in the forest in good weather : " ;
+  cin >> sun_f;
+  cout << "Enter efficiency at home in rainy weather : " ;
+  cin >> rain_h;
+  cout << "Enter efficiency in the forest in rainy weather : " ;
+  cin >> rain_f;
+  cout << endl;
+  
+  cout << "Efficiency if you stay at home = " << p_s * sun_h +  p_s * sun_f << endl;
+  cout << "Efficiency if you go to the forest = " << p_r * rain_h + p_r * rain_f  ; 
+ return 0;
+}
