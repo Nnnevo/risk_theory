@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float function(float X[3], float p[3])
+{
+	return X[0]*p[0]+X[1]*p[1]+X[2]*p[2];
+}
+
+int main()
+{	
+
+	float Profit_old[3] = {80, 50, -20},
+		Profit_new[3] = {300, 100, -100};
+		
+	float Probability_old[3] = {0.2, 0.7, 0.1},
+		Probability_new[3] = {0.2, 0.5, 0.3};
+	
+	float PO = function(Profit_old,Probability_old), PN = function(Profit_new,Probability_new);
+	
+	
+	cout << "Profit old = " << PO <<endl;
+	cout << "Profit new = " << PN <<endl;
+	
+	if (PO > PN)
+		cout << "there will be no benefit from the new model" <<endl;
+	else
+		cout << "the benefit of the new model will be" <<endl;
+
+	return 0;
+}
