@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+void function(float F[4])
+{	float p = 1/(F[3]-15);
+	float a = F[0];
+	float c = F[1];
+	float x1 = F[2];
+	float x2 = F[3];
+	float Ux1 = a * pow(x1,c);
+	float Ux2 = a * pow(x2,c);
+	float U = p*Ux1 + (1-p)*Ux2;
+	float Udet = pow(U/a,1/c);
+	float x_ = p*x1 + (1-p)*x2;
+	cout << "Expected win: " <<  x_ << endl;
+	cout << "Expected usefulness:  " << U << endl;
+	cout << "Deterministic equivalent:  " << Udet << endl;
+	cout << "Risk premium:  " << x_ - Udet  << endl;
+}
+int main()
+{   
+    float F[14][4] = { {10 ,2.0 ,0 ,10 },
+    					{20 ,3.0 ,10 ,20 },
+    					{50 ,0.1 ,20 ,30 },
+    					{30 ,1.0 ,5 ,10 },
+    					{45 ,0.5 ,5 ,20 },
+    					{55 ,4.0 ,5 ,30 },
+    					{25 ,0.25 ,0 ,10 },
+    					{65 ,5.0 ,10 ,20 },
+    					{75 ,0.4 ,20 ,30 },
+    					{35 ,0.2 ,0 ,10 },
+    					{95 ,1.2 ,10 ,20 },
+    					{10 ,2.5 ,20 ,30 },
+    					{15 ,0.6 ,5 ,10 },
+    					{85 ,3.5 ,5 ,20 }
+						};
+	
+	for(int i=0; i<14; i++)
+	{
+		function(F[i]);
+		cout << endl;			
+	}
+    return 0;
+
+}
